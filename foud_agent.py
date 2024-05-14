@@ -15,8 +15,13 @@ def main():
 
 def predict_resp(content):
     # 判断是否为金融类问题 TODO
+    # 使用Qwen
     if not is_foud_question(content):
+    
+    # 使用微调文本二分类模型 ~121MB
+    # if not is_foud_question_fast(content):
         return "问题与金融领域无关，请重新输入"
+    
     
     # 抽取问题中的基金名称
     foud_name = get_foud_name(content)
