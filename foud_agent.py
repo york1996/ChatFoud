@@ -1,6 +1,6 @@
 import argparse
 
-from core.check_foud_content import is_foud_question
+from core.check_foud_content import is_foud_question, is_foud_question_faster
 from core.gen_final_resp_content import gen_answer
 from core.get_foud_info import get_foud_info
 from core.get_foud_name import get_foud_name
@@ -19,7 +19,7 @@ def predict_resp(content):
     if not is_foud_question(content):
     
     # 使用微调文本二分类模型 ~121MB
-    # if not is_foud_question_fast(content):
+    # if not is_foud_question_faster(content):
         return "问题与金融领域无关，请重新输入"
     
     
