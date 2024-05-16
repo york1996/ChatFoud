@@ -4,7 +4,7 @@ from core.check_foud_content import is_foud_question
 from core.gen_final_resp_content import gen_answer
 from core.get_foud_info import get_foud_info
 from core.get_foud_name import get_foud_name
-from llm.qwen import generate_response
+from llm.qwen import generate_response_single
 
 def main():
     parser = argparse.ArgumentParser()
@@ -20,8 +20,8 @@ def predict_resp(content):
     
     # 抽取问题中的基金名称
     foud_name = get_foud_name(content)
-    if foud_name.lower() == "error":
-        return "请在问题中带入您要咨询的基金名称"
+    if "error" in foud_name.lower():
+        return generate_response_single(content)
     
     # 根据基金名称获取基金信息 TODO
     foud_info = get_foud_info(content) 
