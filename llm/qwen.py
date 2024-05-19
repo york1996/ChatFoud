@@ -5,7 +5,6 @@ device = "mps"
 model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen1.5-4B-Chat",torch_dtype=torch.float16,device_map="auto")
 tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen1.5-4B-Chat")
 
-
 def generate_response(messages):
     text = tokenizer.apply_chat_template(
         messages,
